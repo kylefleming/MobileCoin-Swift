@@ -49,7 +49,7 @@ extension IntegrationTestFixtures {
     static func createAccountKey(accountIndex: Int = 0) throws -> AccountKey {
         let fogAuthoritySpki = try self.fogAuthoritySpki()
         return try AccountKey.make(
-            rootEntropy: rootEntropies[accountIndex],
+            entropy: rootEntropies[accountIndex].data,
             fogReportUrl: fogReportUrl,
             fogReportId: fogReportId,
             fogAuthoritySpki: fogAuthoritySpki).get()
